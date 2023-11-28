@@ -1,0 +1,15 @@
+{
+    "name": "tuanutt0211/laradock",
+    "autoload": {
+        "psr-4": {
+            "Tuanutt0211\\Laradock\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TuanUTT0211",
+            "email": "yoshidahidetoshi123@gmail.com"
+        }
+    ],
+    "require": {}
+}
