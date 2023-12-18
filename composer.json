@@ -11,5 +11,7 @@
             "email": "yoshidahidetoshi123@gmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "laravel/sail": "^1.26"
+    }
 }
