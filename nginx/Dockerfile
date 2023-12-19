@@ -12,6 +12,13 @@ RUN if [ ${CHANGE_SOURCE} = true ]; then \
     sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories \
 ;fi
 
+FROM ubuntu:latest
+
+# Update and install Nginx
+RUN apt-get update && apt-get install -y nginx
+
+# ... other Dockerfile configurations ...
+
 RUN apk update \
     && apk upgrade \
     && apk --update add logrotate \
@@ -41,4 +48,17 @@ ADD ./startup.sh /opt/startup.sh
 RUN sed -i 's/\r//g' /opt/startup.sh
 CMD ["/bin/bash", "/opt/startup.sh"]
 
-EXPOSE 80 81 443
+EXPOSE 80 81 443 8888
+
+
+FROM debian:latest
+
+# Update the package list and install Nginx
+RUN apt-get update && \
+    apt-get install -y nginx
+
+# Copy your application files to the container
+COPY . /var/www
+
+# Start Nginx in the foreground
+CMD ["nginx", "-g", "daemon off;"]
