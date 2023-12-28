@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "tuanutt0211/laradock",
     "autoload": {
         "psr-4": {
@@ -13,5 +14,9 @@
     ],
     "require-dev": {
         "laravel/sail": "^1.26"
+
+    "require": {
+        "spatie/laravel-permission": "^6.3",
+        "laravelcollective/html": "^6.4"
     }
 }
